@@ -11,11 +11,11 @@ import { map } from 'rxjs/operators';
 export class JsoncallService {
 
   getSelectedProductId: 0;
-
+  paginationLength: number;
   selectedProduct: object;
   productData: IProduct[] = [];
   private defaultFilterConfig = {
-    lowToHigh: false
+    lowToHigh: null
   };
   filter$ = new BehaviorSubject<any>(this.defaultFilterConfig);
   public getFilters = this.filter$.asObservable();
@@ -30,8 +30,10 @@ export class JsoncallService {
       .pipe(
         map((products) => {
           const filters = this.filter$.value;
-          if (filters.lowToHigh) {
+          if (filters.lowToHigh === 'true') {
             products = products.sort( (a: IProduct, b: IProduct) => a.price - b.price);
+          } else if (filters.lowToHigh === 'false') {
+            products = products.sort( (a: IProduct, b: IProduct) => a.price - b.price).reverse();
           }
           return products;
         })
@@ -48,8 +50,6 @@ export class JsoncallService {
   }
 
   firstProductsRender() {
-    // this.getProducts().subscribe(data => this.productData = data);
-    // console.log(this.productData, 'Product Data');
     this.getProducts().subscribe(data => {
       this.productData = data;
       console.log(data, 'Product data');

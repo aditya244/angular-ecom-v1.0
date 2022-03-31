@@ -20,7 +20,15 @@ export class SidebarComponent implements OnInit {
   }
 
   sortProductsByPrice($event) {
-    this.jsonService.applyFilter({lowToHigh: true});
+    this.jsonService.applyFilter({lowToHigh: 'true'});
+  }
+
+  sortProductsByPriceHighToLow($event) {
+    this.jsonService.applyFilter({lowToHigh: 'false'});
+  }
+
+  clearSortFilter() {
+    this.jsonService.applyFilter({lowToHigh: null});
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../shared/services/cart.service';
+import { JsoncallService } from 'src/app/shared/services/jsoncall.service';
+import { ProdFilterService } from 'src/app/shared/services/prod-filter.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,9 @@ import { CartService } from '../../shared/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public cartService: CartService) { }
+  searchItem: string;
+
+  constructor(public cartService: CartService, public prodFilter: ProdFilterService) { }
 
   ngOnInit() {
   }

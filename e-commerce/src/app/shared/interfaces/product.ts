@@ -1,5 +1,5 @@
 // This is an interface file
-export interface IProduct{
+export interface IProduct {
     id: number;
     name: string;
     price: number;

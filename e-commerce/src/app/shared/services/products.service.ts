@@ -11,15 +11,15 @@ export class ProductsService {
   productArr: IProduct[] = [];
   private singleProdData: any;
 
-  onIncrement(prodId) {
-    this.jsonCallService.getProductData()
-      .subscribe(data => {
-        this.singleProdData = data[prodId];
-        this.productArr.push(this.singleProdData);
-        console.log(this.singleProdData, 'single data');
-      });
-    console.log(this.productArr, 'prodarr');
-  }
+  // onIncrement(prodId) {
+  //   this.jsonCallService.getProductData()
+  //     .subscribe(data => {
+  //       this.singleProdData = data[prodId];
+  //       this.productArr.push(this.singleProdData);
+  //       console.log(this.singleProdData, 'single data');
+  //     });
+  //   console.log(this.productArr, 'prodarr');
+  // }
 
 
 }

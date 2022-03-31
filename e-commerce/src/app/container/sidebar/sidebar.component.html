@@ -4,10 +4,7 @@
       <div class="form-check">
         <p>Sort Products by Price</p>
         <hr>
-        <input
-          class="form-check-input"
-          type="checkbox"
-          data-md-icheck (change)="sortProductsByPrice($event)">
+        <input type="radio" name="sort" value="Low To High" (click)="sortProductsByPrice($event)">
         <label class="form-check-label" for="defaultCheck1">
           Low to High
         </label>
@@ -15,13 +12,21 @@
     </li>
     <li class="list-group-item">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <!-- <input class="form-check-input" type="checkbox" data-md-icheck (change)="sortProductsByPrice2($event)"> -->
+        <input type="radio" name="sort" value="Low To High" (click)="sortProductsByPriceHighToLow($event)">
         <label class="form-check-label" for="defaultCheck2">
           High to Low
         </label>
       </div>
     </li>
+    <li class="list-group-item">
+      <div class="form-check">
+        <button class="btn btn-light" (click)="clearSortFilter()">Clear Sort Filter</button>
+      </div>
+    </li>
   </ul><br>
+  <!-- <input type="radio" name="sort" value="Low To High" (click)="sortProductsByPrice($event)"><label> Low to High</label>
+  <input type="radio" name="sort" value="Low To High" (click)="sortProductsByPrice2($event)"><label> High to Low </label> -->
 
   <ul class="list-group">
     <li class="list-group-item">

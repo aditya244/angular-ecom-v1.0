@@ -1,14 +1,17 @@
 <div class="card" style="width: 18rem; float:left">
-  <img class="card-img-top" [src]="productImgUrl" alt="Card image cap" height="300">
+  <img
+      class="card-img-top"
+      [src]="productImgUrl"
+      alt="Card image cap"
+      (click)="onClickProduct(productId)"
+      height="300">
   <div class="card-body">
     <h5 class="card-title">{{productTitle}}</h5>
     <span class="card-attr">Price: {{productPrice}}</span>
     <p class="card-text">
       Category: {{productCategory}}
     </p>
-    <p>
-      <button class="btn btn-light counter-btn" (click)="this.prodsService.onIncrement(productId)">+</button>
-      <button class="btn btn-light counter-btn">-</button>
-    </p>
-      <button class="btn btn-info" (click)="cartService.addToCart(productId)">Add to Cart</button>
+      <button class="btn btn-info" type="button" (click)="cartService.addToCart(productId)">Add to Cart</button>
 </div>
+</div>
+

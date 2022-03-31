@@ -3,12 +3,36 @@
       <app-sidebar></app-sidebar>
     </div>
     <div class="col-md-9 float-left product-container">
+
       <app-product *ngFor="let product of productData"
+      [productTitle]="product.name"
+      [productPrice]="product.price"
+      [productCategory]="product.category"
+      [productId]="product.id"
+      [productImgUrl]="product.imageUrl">
+    </app-product>
+      <!-- <div class="product-trial" *ngFor="let product of productData | paginate: {id: 'list',
+        itemsPerPage: 5,
+        currentPage: currentPageNumber,
+        totaItems: totalProducts}">
+        <p routerLink="cart">{{product.name}}</p>
+      </div> -->
+      <!-- <app-product *ngFor="let product of productData | paginate: {id: 'list',
+        itemsPerPage: 5,
+        currentPage: currentPageNumber,
+        totaItems: totalProducts}"
         [productTitle]="product.name"
         [productPrice]="product.price"
         [productCategory]="product.category"
         [productId]="product.id"
         [productImgUrl]="product.imageUrl">
-      </app-product>
+      </app-product> -->
     </div>
+    <!-- <div class="col-md-12 pagination-container">
+      <pagination-controls id="list" maxSize="5" directionLinks="true" (pageChange)="currentPageNumber = $event"></pagination-controls>
+    </div> -->
+</div>
+<div class="col-md-12 pagination-container">
+  <!-- <pagination-controls id="list" maxSize="5" directionLinks="true" (pageChange)="currentPageNumber = $event"></pagination-controls> -->
+  <!-- <pagination-controls (pageChange)="currentPageNumber = $event"></pagination-controls> -->
 </div>

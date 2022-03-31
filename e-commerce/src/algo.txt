@@ -1,0 +1,25 @@
+algo for pagination
+  - variables required
+    - counter variable starts with 0
+    - page number starts with 1
+    - number of items per page -> 5 for eg
+  - the initial api call is made (for page no 1)
+    - to filter the data the counter value will get to action,
+    - counter value will range from
+      - page number - 1 * number of items per page , and will run as many times as items per page
+      - 1 - 1 (0) to 5 times -> 5 loops, 0 to 4
+      - for 1st page, 0,1,2,3,4 (5 items are rendered)
+  - next page call / random page call
+    - grab the page number. (take 3 as example)
+    - counter range will be from page num -> (3 - 1 = 2) * 5 = 10 to 5 times (10,11,12,13,14,15 -> counter range)
+
+  - the data from the api call will be filtered in such a way if page number is 1, then items to render will be 1 * number of items per page
+  - i.e. if page renders 5 per page, then for first page, it renders 1 * 5, i.e first 5 elements of the array.
+  - and the counter will be increae after every page.
+  - data render in page logic will be.
+   - for 1st page, counter is 0, number of items in a page is 5 and page number is 1
+   - so the number of items rendered is 5*1 and the counter for the array will start from zero and increment to the number of items required.
+   - Thus for page 1, only items 0 - 4 will be rendered.
+   - for page 2, the counter will be at 5 (last recorded was 4), no of items in a page is 5, and page number is 2.
+- the counter value should be page number * number of items per page - 1, as we are starting from 0,
+  - and will go upto the number of items oer page

@@ -1,3 +1,27 @@
 .product-container{
   margin-top: 15px;
+  margin-bottom: 15px;
+}
+.pagination-bar {
+  margin: auto;
+  margin-bottom: 12px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.page-btn {
+  border: none;
+  border-bottom: 1px;
+  box-shadow: 2px;
+  margin-left: 8px;
+}
+
+.pagination-container {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.product-trial:hover{
+  cursor: pointer;
 }

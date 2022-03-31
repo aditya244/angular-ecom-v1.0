@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
       });
 
     this.totalCartAmount = this.cartService.totalPrice;
-      // this.cartService.getCartTotal()
+    // this.cartService.getCartTotal()
   }
 
 }

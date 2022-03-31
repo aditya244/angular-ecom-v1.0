@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JsoncallService } from '../../shared/services/jsoncall.service';
 import { IProduct } from '../../shared/interfaces/product';
-import { switchMap } from 'rxjs/operators';
+import { count, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -10,10 +11,13 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProductsComponent implements OnInit {
 
-  sortedData: IProduct[] = [];
-  productData: any = [];
+  productData: IProduct[] = [];
+  totalProducts: Number;
+  currentPageNumber: Number = 1;
 
-  constructor(public jsoncallService: JsoncallService) { }
+  constructor(public jsoncallService: JsoncallService,
+    public router: Router
+      ) { }
 
   ngOnInit() {
     this.jsoncallService.getFilters
@@ -22,6 +26,15 @@ export class ProductsComponent implements OnInit {
     )
     .subscribe((product) => {
       this.productData = product;
-    });
+      this.totalProducts = this.productData.length;
+      //console.log(this.productData, 'prod data')
+    })
   }
+
+  onClickProduct(productId) {
+    //console.log('method called')
+    this.router.navigate(['/products', productId]);
+    //console.log(productId, 'product-id');
+  }
+
 }
